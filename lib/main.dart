@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -91,32 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
-                color: Colors.red,
-              ),
-              child: Text("Hello", style: TextStyle(color: Colors.amber)),
-            ),
-            Container(
-              height: 100.0,
-              width: 100.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
-                color: Colors.red,
-              ),
-              child: Text("Hello", style: TextStyle(color: Colors.amber)),
-            )
-          ],
-        ),
+      body: Image.network(
+        "https://upload.wikimedia.org/wikipedia/ru/9/91/Silent_Hill_f.jpg",
+        height: double.infinity,
+        fit: BoxFit.cover,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
