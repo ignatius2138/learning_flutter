@@ -13,22 +13,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.teal,
-            brightness: Brightness.dark
+          seedColor: Colors.teal,
+          brightness: Brightness.dark,
         ),
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Kydja"),
-          centerTitle: true,
-          actions: [
-            Icon(Icons.abc_rounded),
-            Text("Hello")
+        appBar: AppBar(title: Text("Kydja"), centerTitle: true),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.ac_unit), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.abc_sharp), label: "Second Screen"),
           ],
-          backgroundColor: Colors.teal,
         ),
       ),
     );
   }
 }
-
