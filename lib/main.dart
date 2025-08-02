@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,33 +31,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Kydja"), centerTitle: true),
-      body: currentIndex == 0
-          ? Center(child: Text("1"),
-      )
-          : Center(child: Text("2"),
-      ),
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(icon: Icon(Icons.ac_unit), label: "Home"),
-          NavigationDestination(
-            icon: Icon(Icons.abc_sharp),
-            label: "Second Screen",
-          ),
-        ],
-        onDestinationSelected: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        selectedIndex: currentIndex,
-      ),
-    );
+    return WidgetTree();
   }
 }
 
