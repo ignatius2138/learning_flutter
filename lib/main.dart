@@ -17,30 +17,46 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(title: Text("Kydja"), centerTitle: true),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.plus_one),
-        ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(child: Text("Header")),
-              ListTile(title: Text("Logout"),)
-            ],
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Kydja"), centerTitle: true),
+      body: currentIndex == 0
+          ? Center(child: Text("1"),
+      )
+          : Center(child: Text("2"),
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(icon: Icon(Icons.ac_unit), label: "Home"),
+          NavigationDestination(
+            icon: Icon(Icons.abc_sharp),
+            label: "Second Screen",
           ),
-        ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.ac_unit), label: "Home"),
-            NavigationDestination(
-              icon: Icon(Icons.abc_sharp),
-              label: "Second Screen",
-            ),
-          ],
-        ),
+        ],
+        onDestinationSelected: (value) {
+          setState(() {
+            currentIndex = value;
+          });
+        },
+        selectedIndex: currentIndex,
       ),
     );
   }
 }
+
