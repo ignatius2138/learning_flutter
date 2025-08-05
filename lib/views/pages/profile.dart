@@ -10,6 +10,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   TextEditingController controller = TextEditingController();
   bool? isChecked = false;
+  bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,23 @@ class _ProfilePageState extends State<ProfilePage> {
             onChanged: (value) {
               setState(() {
                 isChecked = value;
+              });
+            },
+          ),
+          Switch(
+            value: isSwitched,
+            onChanged: (value) {
+              setState(() {
+                isSwitched = value;
+              });
+            },
+          ),
+          SwitchListTile(
+            title: Text("Dark mode Enabled"),
+            value: isSwitched,
+            onChanged: (bool value) {
+              setState(() {
+                isSwitched = value;
               });
             },
           ),
